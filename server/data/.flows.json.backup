@@ -1,0 +1,140 @@
+[
+    {
+        "id": "f909623cb405c1fe",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "broker1",
+        "type": "mqtt-broker",
+        "name": "Mosquitto Local",
+        "broker": "mosquitto",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "http_in",
+        "type": "http in",
+        "z": "f909623cb405c1fe",
+        "name": "Receber comando HTTP",
+        "url": "/enviar-comando",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 290,
+        "y": 300,
+        "wires": [
+            [
+                "debug_req",
+                "json_parse"
+            ]
+        ]
+    },
+    {
+        "id": "debug_req",
+        "type": "debug",
+        "z": "f909623cb405c1fe",
+        "name": "Debug corpo HTTP",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 490,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "json_parse",
+        "type": "json",
+        "z": "f909623cb405c1fe",
+        "name": "Parse JSON",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 490,
+        "y": 320,
+        "wires": [
+            [
+                "extract_cmd"
+            ]
+        ]
+    },
+    {
+        "id": "extract_cmd",
+        "type": "function",
+        "z": "f909623cb405c1fe",
+        "name": "Extrair comando",
+        "func": "msg.payload = msg.payload.comando;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 320,
+        "wires": [
+            [
+                "debug_cmd",
+                "mqtt_out",
+                "http_resp"
+            ]
+        ]
+    },
+    {
+        "id": "debug_cmd",
+        "type": "debug",
+        "z": "f909623cb405c1fe",
+        "name": "Debug comando MQTT",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 890,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "mqtt_out",
+        "type": "mqtt out",
+        "z": "f909623cb405c1fe",
+        "name": "Publicar comando MQTT",
+        "topic": "carro/comando",
+        "qos": "",
+        "retain": "",
+        "broker": "broker1",
+        "x": 890,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "http_resp",
+        "type": "http response",
+        "z": "f909623cb405c1fe",
+        "name": "Responder HTTP",
+        "statusCode": "200",
+        "headers": {},
+        "x": 890,
+        "y": 360,
+        "wires": []
+    }
+]
