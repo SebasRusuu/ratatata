@@ -1,16 +1,35 @@
 [
     {
-        "id": "f909623cb405c1fe",
+        "id": "44e4d7b8779482fa",
         "type": "tab",
-        "label": "Flow 2",
+        "label": "Controlo do Carro",
         "disabled": false,
-        "info": "",
-        "env": []
+        "info": ""
     },
     {
-        "id": "broker1",
+        "id": "2e07c98446453759",
+        "type": "ui_group",
+        "name": "Controlo",
+        "tab": "fc4788f2c5ccac32",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "fc4788f2c5ccac32",
+        "type": "ui_tab",
+        "name": "Carro",
+        "icon": "car",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "32f00862.92f0b",
         "type": "mqtt-broker",
-        "name": "Mosquitto Local",
+        "name": "Mosquitto",
         "broker": "mosquitto",
         "port": "1883",
         "clientid": "",
@@ -28,113 +47,366 @@
         "willPayload": ""
     },
     {
-        "id": "http_in",
-        "type": "http in",
-        "z": "f909623cb405c1fe",
-        "name": "Receber comando HTTP",
-        "url": "/enviar-comando",
-        "method": "post",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 290,
-        "y": 300,
+        "id": "f15df134aefc5dbe",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "h1i2j3k4l5m6",
+        "type": "ui_tab",
+        "name": "Carro",
+        "icon": "car",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "n1o2p3q4r5s6",
+        "type": "mqtt-broker",
+        "name": "Mosquitto",
+        "broker": "mosquitto",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true
+    },
+    {
+        "id": "43bd6b137eef8cba",
+        "type": "postgreSQLConfig",
+        "name": "",
+        "host": "jdbc:postgresql://localhost:5432/test",
+        "hostFieldType": "str",
+        "port": "5432",
+        "portFieldType": "num",
+        "database": "postgres",
+        "databaseFieldType": "str",
+        "ssl": "true",
+        "sslFieldType": "bool",
+        "applicationName": "",
+        "applicationNameType": "str",
+        "max": "10",
+        "maxFieldType": "num",
+        "idle": "1000",
+        "idleFieldType": "num",
+        "connectionTimeout": "10000",
+        "connectionTimeoutFieldType": "num",
+        "user": "",
+        "userFieldType": "str",
+        "password": "",
+        "passwordFieldType": "str"
+    },
+    {
+        "id": "185ad6f773825369",
+        "type": "ui_button",
+        "z": "44e4d7b8779482fa",
+        "name": "Frente",
+        "group": "2e07c98446453759",
+        "order": 1,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "▲ Frente",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "frente",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 200,
+        "y": 100,
         "wires": [
             [
-                "debug_req",
-                "json_parse"
+                "5fd98eae3bc9067f"
             ]
         ]
     },
     {
-        "id": "debug_req",
-        "type": "debug",
-        "z": "f909623cb405c1fe",
-        "name": "Debug corpo HTTP",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "x": 490,
+        "id": "843d70278140201f",
+        "type": "ui_button",
+        "z": "44e4d7b8779482fa",
+        "name": "Esquerda",
+        "group": "2e07c98446453759",
+        "order": 2,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "◀ Esquerda",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "esquerda",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 200,
+        "y": 140,
+        "wires": [
+            [
+                "5fd98eae3bc9067f"
+            ]
+        ]
+    },
+    {
+        "id": "06e1353de98db235",
+        "type": "ui_button",
+        "z": "44e4d7b8779482fa",
+        "name": "Direita",
+        "group": "2e07c98446453759",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "▶ Direita",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "direita",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 200,
+        "y": 180,
+        "wires": [
+            [
+                "5fd98eae3bc9067f"
+            ]
+        ]
+    },
+    {
+        "id": "951c6ec4e8a182a8",
+        "type": "ui_button",
+        "z": "44e4d7b8779482fa",
+        "name": "Trás",
+        "group": "2e07c98446453759",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "▼ Trás",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "tras",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 200,
+        "y": 220,
+        "wires": [
+            [
+                "5fd98eae3bc9067f"
+            ]
+        ]
+    },
+    {
+        "id": "616bac0cd45a1c98",
+        "type": "ui_button",
+        "z": "44e4d7b8779482fa",
+        "name": "Parar",
+        "group": "2e07c98446453759",
+        "order": 5,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "■ Parar",
+        "tooltip": "",
+        "color": "#ffffff",
+        "bgcolor": "#ff0000",
+        "className": "",
+        "icon": "",
+        "payload": "parar",
+        "payloadType": "str",
+        "topic": "",
+        "x": 200,
         "y": 260,
-        "wires": []
-    },
-    {
-        "id": "json_parse",
-        "type": "json",
-        "z": "f909623cb405c1fe",
-        "name": "Parse JSON",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 490,
-        "y": 320,
         "wires": [
             [
-                "extract_cmd"
+                "5fd98eae3bc9067f"
             ]
         ]
     },
     {
-        "id": "extract_cmd",
-        "type": "function",
-        "z": "f909623cb405c1fe",
-        "name": "Extrair comando",
-        "func": "msg.payload = msg.payload.comando;\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 690,
-        "y": 320,
-        "wires": [
-            [
-                "debug_cmd",
-                "mqtt_out",
-                "http_resp"
-            ]
-        ]
-    },
-    {
-        "id": "debug_cmd",
-        "type": "debug",
-        "z": "f909623cb405c1fe",
-        "name": "Debug comando MQTT",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "x": 890,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "mqtt_out",
+        "id": "5fd98eae3bc9067f",
         "type": "mqtt out",
-        "z": "f909623cb405c1fe",
-        "name": "Publicar comando MQTT",
+        "z": "44e4d7b8779482fa",
+        "name": "MQTT para ESP32",
         "topic": "carro/comando",
-        "qos": "",
+        "qos": "0",
         "retain": "",
-        "broker": "broker1",
-        "x": 890,
-        "y": 320,
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "32f00862.92f0b",
+        "x": 480,
+        "y": 180,
         "wires": []
     },
     {
-        "id": "http_resp",
-        "type": "http response",
-        "z": "f909623cb405c1fe",
-        "name": "Responder HTTP",
-        "statusCode": "200",
-        "headers": {},
-        "x": 890,
+        "id": "62196be844b62172",
+        "type": "mqtt in",
+        "z": "44e4d7b8779482fa",
+        "name": "Velocidade Máxima",
+        "topic": "carro/velocidadeMaxima",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "32f00862.92f0b",
+        "inputs": 0,
+        "x": 270,
         "y": 360,
+        "wires": [
+            [
+                "b66db9a7a4cd5a82",
+                "9e98335901a70a1e"
+            ]
+        ]
+    },
+    {
+        "id": "b66db9a7a4cd5a82",
+        "type": "function",
+        "z": "44e4d7b8779482fa",
+        "name": "Parse Velocity",
+        "func": "var msgParts = msg.payload.split(':');\nmsg.payload = {velocity: parseFloat(msgParts[1])};\nreturn msg;",
+        "outputs": 1,
+        "x": 540,
+        "y": 360,
+        "wires": [
+            [
+                "d37a7f7858932278"
+            ]
+        ]
+    },
+    {
+        "id": "d37a7f7858932278",
+        "type": "postgresql",
+        "z": "44e4d7b8779482fa",
+        "name": "Update DB",
+        "query": "UPDATE carro SET carro_velocidade = $1, carro_rpm = $2, carro_bateria = $3, carro_tempoPercuso = $4, carro_sensorDistancia = $5 WHERE TRUE;",
+        "postgreSQLConfig": "43bd6b137eef8cba",
+        "split": false,
+        "rowsPerMsg": "",
+        "x": 870,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "9e98335901a70a1e",
+        "type": "ui_text",
+        "z": "44e4d7b8779482fa",
+        "group": "2e07c98446453759",
+        "order": 1,
+        "width": "6",
+        "height": "1",
+        "name": "Velocidade Máxima",
+        "label": "Velocidade Máxima",
+        "format": "{{msg.payload.velocity}} m/s",
+        "layout": "row-spread",
+        "x": 570,
+        "y": 460,
         "wires": []
     }
 ]

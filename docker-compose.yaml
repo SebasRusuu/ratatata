@@ -1,51 +1,39 @@
-  services:
-    web:
-      container_name: react_app
-      build:
-        context: ./web
-      ports:
-        - "3000:3000"
-      volumes:
-        - ./web:/app
-      depends_on:
-        - server
-      environment:
-        - REACT_APP_API_URL=http://localhost:8080
+version: '3'
+services:
+  server:
+    container_name: node_red
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "1880:1880"
+    depends_on:
+      - db
+      - mosquitto
+    volumes:
+      - ./server/data:/data
 
-    server:
-      container_name: node_red
-      build:
-        context: ./server
-        dockerfile: Dockerfile
-      ports:
-        - "1880:1880"
-      depends_on:
-        - db
-        - mosquitto
-      volumes:
-        - ./server/data:/data
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: mosquitto
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
 
+  db:
+    container_name: postgres
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: test
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./db/scripts:/docker-entrypoint-initdb.d
 
-    mosquitto:
-      image: eclipse-mosquitto:latest
-      container_name: mosquitto
-      ports:
-        - "1883:1883"
-        - "9001:9001"
-      volumes:
-        - ./mosquitto/config:/mosquitto/config
-    db:
-      container_name: postgres
-      image: postgres:latest
-      ports:
-        - "5432:5432"
-      environment:
-        POSTGRES_USER: test
-        POSTGRES_PASSWORD: test
-        POSTGRES_DB: test
-      volumes:
-        - db_data:/var/lib/postgresql/data
-        - ./db/scripts:/docker-entrypoint-initdb.d
-
-  volumes:
-    db_data:
+volumes:
+  db_data:
