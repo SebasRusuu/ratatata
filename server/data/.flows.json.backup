@@ -1,6 +1,6 @@
 [
     {
-        "id": "44e4d7b8779482fa",
+        "id": "31154d59d469d008",
         "type": "tab",
         "label": "Controlo do Carro",
         "disabled": false,
@@ -30,21 +30,29 @@
         "id": "32f00862.92f0b",
         "type": "mqtt-broker",
         "name": "Mosquitto",
-        "broker": "mosquitto",
+        "broker": "192.168.1.155",
         "port": "1883",
         "clientid": "",
+        "autoConnect": true,
         "usetls": false,
         "compatmode": false,
+        "protocolVersion": "4",
         "keepalive": "60",
         "cleansession": true,
+        "autoUnsubscribe": true,
         "birthTopic": "",
         "birthQos": "0",
         "birthPayload": "",
+        "birthMsg": {},
         "closeTopic": "",
         "closePayload": "",
+        "closeMsg": {},
         "willTopic": "",
         "willQos": "0",
-        "willPayload": ""
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
     },
     {
         "id": "f15df134aefc5dbe",
@@ -144,31 +152,49 @@
         }
     },
     {
-        "id": "h1i2j3k4l5m6",
-        "type": "ui_tab",
-        "name": "Carro",
-        "icon": "car",
+        "id": "group_acel",
+        "type": "ui_group",
+        "name": "📊 Acelerômetro",
+        "tab": "fc4788f2c5ccac32",
         "order": 1,
-        "disabled": false,
-        "hidden": false
+        "disp": true,
+        "width": 4,
+        "collapse": false
     },
     {
-        "id": "n1o2p3q4r5s6",
-        "type": "mqtt-broker",
-        "name": "Mosquitto",
-        "broker": "mosquitto",
-        "port": "1883",
-        "clientid": "",
-        "usetls": false,
-        "compatmode": false,
-        "keepalive": "60",
-        "cleansession": true
+        "id": "group_giro",
+        "type": "ui_group",
+        "name": "🔄 Giroscópio",
+        "tab": "fc4788f2c5ccac32",
+        "order": 2,
+        "disp": true,
+        "width": 4,
+        "collapse": false
     },
     {
-        "id": "43bd6b137eef8cba",
+        "id": "group_gforce",
+        "type": "ui_group",
+        "name": "💥 Força G",
+        "tab": "fc4788f2c5ccac32",
+        "order": 3,
+        "disp": true,
+        "width": 4,
+        "collapse": false
+    },
+    {
+        "id": "postgres_config",
+        "type": "postgresdb",
+        "cfgname": "",
+        "hostname": "postgres",
+        "port": "5432",
+        "db": "",
+        "ssl": false
+    },
+    {
+        "id": "bbef69896cfe927f",
         "type": "postgreSQLConfig",
         "name": "",
-        "host": "jdbc:postgresql://localhost:5432/test",
+        "host": "postgres",
         "hostFieldType": "str",
         "port": "5432",
         "portFieldType": "num",
@@ -184,154 +210,15 @@
         "idleFieldType": "num",
         "connectionTimeout": "10000",
         "connectionTimeoutFieldType": "num",
-        "user": "",
+        "user": "test",
         "userFieldType": "str",
-        "password": "",
+        "password": "test",
         "passwordFieldType": "str"
     },
     {
-        "id": "185ad6f773825369",
-        "type": "ui_button",
-        "z": "44e4d7b8779482fa",
-        "name": "Frente",
-        "group": "2e07c98446453759",
-        "order": 1,
-        "width": 3,
-        "height": 1,
-        "passthru": false,
-        "label": "▲ Frente",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "frente",
-        "payloadType": "str",
-        "topic": "",
-        "topicType": "str",
-        "x": 200,
-        "y": 100,
-        "wires": [
-            [
-                "5fd98eae3bc9067f"
-            ]
-        ]
-    },
-    {
-        "id": "843d70278140201f",
-        "type": "ui_button",
-        "z": "44e4d7b8779482fa",
-        "name": "Esquerda",
-        "group": "2e07c98446453759",
-        "order": 2,
-        "width": 3,
-        "height": 1,
-        "passthru": false,
-        "label": "◀ Esquerda",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "esquerda",
-        "payloadType": "str",
-        "topic": "",
-        "topicType": "str",
-        "x": 200,
-        "y": 140,
-        "wires": [
-            [
-                "5fd98eae3bc9067f"
-            ]
-        ]
-    },
-    {
-        "id": "06e1353de98db235",
-        "type": "ui_button",
-        "z": "44e4d7b8779482fa",
-        "name": "Direita",
-        "group": "2e07c98446453759",
-        "order": 3,
-        "width": 3,
-        "height": 1,
-        "passthru": false,
-        "label": "▶ Direita",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "direita",
-        "payloadType": "str",
-        "topic": "",
-        "topicType": "str",
-        "x": 200,
-        "y": 180,
-        "wires": [
-            [
-                "5fd98eae3bc9067f"
-            ]
-        ]
-    },
-    {
-        "id": "951c6ec4e8a182a8",
-        "type": "ui_button",
-        "z": "44e4d7b8779482fa",
-        "name": "Trás",
-        "group": "2e07c98446453759",
-        "order": 4,
-        "width": 3,
-        "height": 1,
-        "passthru": false,
-        "label": "▼ Trás",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "tras",
-        "payloadType": "str",
-        "topic": "",
-        "topicType": "str",
-        "x": 200,
-        "y": 220,
-        "wires": [
-            [
-                "5fd98eae3bc9067f"
-            ]
-        ]
-    },
-    {
-        "id": "616bac0cd45a1c98",
-        "type": "ui_button",
-        "z": "44e4d7b8779482fa",
-        "name": "Parar",
-        "group": "2e07c98446453759",
-        "order": 5,
-        "width": 6,
-        "height": 1,
-        "passthru": false,
-        "label": "■ Parar",
-        "tooltip": "",
-        "color": "#ffffff",
-        "bgcolor": "#ff0000",
-        "className": "",
-        "icon": "",
-        "payload": "parar",
-        "payloadType": "str",
-        "topic": "",
-        "x": 200,
-        "y": 260,
-        "wires": [
-            [
-                "5fd98eae3bc9067f"
-            ]
-        ]
-    },
-    {
-        "id": "5fd98eae3bc9067f",
+        "id": "29a92224938e59ee",
         "type": "mqtt out",
-        "z": "44e4d7b8779482fa",
+        "z": "31154d59d469d008",
         "name": "MQTT para ESP32",
         "topic": "carro/comando",
         "qos": "0",
@@ -347,66 +234,512 @@
         "wires": []
     },
     {
-        "id": "62196be844b62172",
+        "id": "9e9e35be08ca3e53",
+        "type": "ui_button",
+        "z": "31154d59d469d008",
+        "name": "Frente",
+        "group": "2e07c98446453759",
+        "order": 1,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "▲ Frente",
+        "payload": "frente",
+        "payloadType": "str",
+        "x": 200,
+        "y": 100,
+        "wires": [
+            [
+                "29a92224938e59ee"
+            ]
+        ]
+    },
+    {
+        "id": "cf1f5e67f49a6b6c",
+        "type": "ui_button",
+        "z": "31154d59d469d008",
+        "name": "Esquerda",
+        "group": "2e07c98446453759",
+        "order": 2,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "◀ Esquerda",
+        "payload": "esquerda",
+        "payloadType": "str",
+        "x": 200,
+        "y": 140,
+        "wires": [
+            [
+                "29a92224938e59ee"
+            ]
+        ]
+    },
+    {
+        "id": "80623082f784b913",
+        "type": "ui_button",
+        "z": "31154d59d469d008",
+        "name": "Direita",
+        "group": "2e07c98446453759",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "▶ Direita",
+        "payload": "direita",
+        "payloadType": "str",
+        "x": 200,
+        "y": 180,
+        "wires": [
+            [
+                "29a92224938e59ee"
+            ]
+        ]
+    },
+    {
+        "id": "652786003aee6880",
+        "type": "ui_button",
+        "z": "31154d59d469d008",
+        "name": "Trás",
+        "group": "2e07c98446453759",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "▼ Trás",
+        "payload": "tras",
+        "payloadType": "str",
+        "x": 200,
+        "y": 220,
+        "wires": [
+            [
+                "29a92224938e59ee"
+            ]
+        ]
+    },
+    {
+        "id": "b1411eedada0fcea",
+        "type": "ui_button",
+        "z": "31154d59d469d008",
+        "name": "Parar",
+        "group": "2e07c98446453759",
+        "order": 5,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "■ Parar",
+        "color": "#ffffff",
+        "bgcolor": "#ff0000",
+        "payload": "parar",
+        "payloadType": "str",
+        "x": 200,
+        "y": 260,
+        "wires": [
+            [
+                "29a92224938e59ee"
+            ]
+        ]
+    },
+    {
+        "id": "d1e2f3a4b5c6d7e",
         "type": "mqtt in",
-        "z": "44e4d7b8779482fa",
-        "name": "Velocidade Máxima",
-        "topic": "carro/velocidadeMaxima",
+        "z": "31154d59d469d008",
+        "name": "Sensor MQTT",
+        "topic": "carro/sensor",
         "qos": "0",
         "datatype": "auto",
         "broker": "32f00862.92f0b",
         "inputs": 0,
-        "x": 270,
-        "y": 360,
+        "x": 210,
+        "y": 420,
         "wires": [
             [
-                "b66db9a7a4cd5a82",
-                "9e98335901a70a1e"
+                "c1d2e3f4a5b6c7d"
             ]
         ]
     },
     {
-        "id": "b66db9a7a4cd5a82",
+        "id": "c1d2e3f4a5b6c7d",
+        "type": "json",
+        "z": "31154d59d469d008",
+        "name": "Parse JSON",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 390,
+        "y": 420,
+        "wires": [
+            [
+                "f1e2d3c4b5a6970",
+                "f2e3d4c5b6a7981",
+                "f3e4d5c6b7a8092",
+                "f4e5d6c7b8a9103",
+                "f5e6d7c8b9a0214",
+                "f6e7d8c9b0a1325",
+                "c5b4e64861a48a70"
+            ]
+        ]
+    },
+    {
+        "id": "f1e2d3c4b5a6970",
+        "type": "change",
+        "z": "31154d59d469d008",
+        "name": "extrair ax",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.ax",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 610,
+        "y": 380,
+        "wires": [
+            [
+                "gauge_ax"
+            ]
+        ]
+    },
+    {
+        "id": "f2e3d4c5b6a7981",
+        "type": "change",
+        "z": "31154d59d469d008",
+        "name": "extrair ay",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.ay",
+                "tot": "msg"
+            }
+        ],
+        "x": 610,
+        "y": 420,
+        "wires": [
+            [
+                "gauge_ay"
+            ]
+        ]
+    },
+    {
+        "id": "f3e4d5c6b7a8092",
+        "type": "change",
+        "z": "31154d59d469d008",
+        "name": "extrair az",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.az",
+                "tot": "msg"
+            }
+        ],
+        "x": 610,
+        "y": 460,
+        "wires": [
+            [
+                "gauge_az"
+            ]
+        ]
+    },
+    {
+        "id": "f4e5d6c7b8a9103",
+        "type": "change",
+        "z": "31154d59d469d008",
+        "name": "extrair gx",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.gx",
+                "tot": "msg"
+            }
+        ],
+        "x": 610,
+        "y": 500,
+        "wires": [
+            [
+                "gauge_gx"
+            ]
+        ]
+    },
+    {
+        "id": "f5e6d7c8b9a0214",
+        "type": "change",
+        "z": "31154d59d469d008",
+        "name": "extrair gy",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.gy",
+                "tot": "msg"
+            }
+        ],
+        "x": 610,
+        "y": 540,
+        "wires": [
+            [
+                "gauge_gy"
+            ]
+        ]
+    },
+    {
+        "id": "f6e7d8c9b0a1325",
+        "type": "change",
+        "z": "31154d59d469d008",
+        "name": "extrair gz",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.gz",
+                "tot": "msg"
+            }
+        ],
+        "x": 610,
+        "y": 580,
+        "wires": [
+            [
+                "gauge_gz"
+            ]
+        ]
+    },
+    {
+        "id": "c5b4e64861a48a70",
         "type": "function",
-        "z": "44e4d7b8779482fa",
-        "name": "Parse Velocity",
-        "func": "var msgParts = msg.payload.split(':');\nmsg.payload = {velocity: parseFloat(msgParts[1])};\nreturn msg;",
+        "z": "31154d59d469d008",
+        "name": "Calcular G-Force",
+        "func": "// calcula g-force a partir de ax, ay, az\nconst g = Math.sqrt(\n  msg.payload.ax**2 +\n  msg.payload.ay**2 +\n  msg.payload.az**2\n) / 9.806;\nmsg.payload = g;\nreturn msg;",
         "outputs": 1,
-        "x": 540,
-        "y": 360,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 630,
+        "y": 280,
         "wires": [
             [
-                "d37a7f7858932278"
+                "gauge_gforce"
             ]
         ]
     },
     {
-        "id": "d37a7f7858932278",
-        "type": "postgresql",
-        "z": "44e4d7b8779482fa",
-        "name": "Update DB",
-        "query": "UPDATE carro SET carro_velocidade = $1, carro_rpm = $2, carro_bateria = $3, carro_tempoPercuso = $4, carro_sensorDistancia = $5 WHERE TRUE;",
-        "postgreSQLConfig": "43bd6b137eef8cba",
-        "split": false,
-        "rowsPerMsg": "",
-        "x": 870,
-        "y": 360,
+        "id": "gauge_ax",
+        "type": "ui_gauge",
+        "z": "31154d59d469d008",
+        "name": "Ax",
+        "group": "group_acel",
+        "order": 1,
+        "width": 4,
+        "height": 2,
+        "gtype": "gage",
+        "label": "X (m/s²)",
+        "format": "{{value}}",
+        "min": -8,
+        "max": 8,
+        "x": 770,
+        "y": 380,
         "wires": []
     },
     {
-        "id": "9e98335901a70a1e",
-        "type": "ui_text",
-        "z": "44e4d7b8779482fa",
-        "group": "2e07c98446453759",
-        "order": 1,
-        "width": "6",
-        "height": "1",
-        "name": "Velocidade Máxima",
-        "label": "Velocidade Máxima",
-        "format": "{{msg.payload.velocity}} m/s",
-        "layout": "row-spread",
-        "x": 570,
+        "id": "gauge_ay",
+        "type": "ui_gauge",
+        "z": "31154d59d469d008",
+        "name": "Ay",
+        "group": "group_acel",
+        "order": 2,
+        "width": 4,
+        "height": 2,
+        "gtype": "gage",
+        "label": "Y (m/s²)",
+        "format": "{{value}}",
+        "min": -8,
+        "max": 8,
+        "x": 770,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "gauge_az",
+        "type": "ui_gauge",
+        "z": "31154d59d469d008",
+        "name": "Az",
+        "group": "group_acel",
+        "order": 3,
+        "width": 4,
+        "height": 2,
+        "gtype": "gage",
+        "label": "Z (m/s²)",
+        "format": "{{value}}",
+        "min": -8,
+        "max": 8,
+        "x": 770,
         "y": 460,
         "wires": []
+    },
+    {
+        "id": "gauge_gx",
+        "type": "ui_gauge",
+        "z": "31154d59d469d008",
+        "name": "Gx",
+        "group": "group_giro",
+        "order": 1,
+        "width": 4,
+        "height": 2,
+        "gtype": "gage",
+        "label": "X (°/s)",
+        "format": "{{value}}",
+        "min": -50,
+        "max": 50,
+        "x": 770,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "gauge_gy",
+        "type": "ui_gauge",
+        "z": "31154d59d469d008",
+        "name": "Gy",
+        "group": "group_giro",
+        "order": 2,
+        "width": 4,
+        "height": 2,
+        "gtype": "gage",
+        "label": "Y (°/s)",
+        "format": "{{value}}",
+        "min": -50,
+        "max": 50,
+        "x": 770,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "gauge_gz",
+        "type": "ui_gauge",
+        "z": "31154d59d469d008",
+        "name": "Gz",
+        "group": "group_giro",
+        "order": 3,
+        "width": 4,
+        "height": 2,
+        "gtype": "gage",
+        "title": "",
+        "label": "Z (°/s)",
+        "format": "{{value}}",
+        "min": -50,
+        "max": 50,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 770,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "gauge_gforce",
+        "type": "ui_gauge",
+        "z": "31154d59d469d008",
+        "name": "Força G",
+        "group": "group_gforce",
+        "order": 1,
+        "width": 4,
+        "height": 2,
+        "gtype": "gage",
+        "label": "g",
+        "format": "{{value | number:2}}",
+        "min": 0,
+        "max": 4,
+        "x": 820,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "7482604515bc2467",
+        "type": "mqtt in",
+        "z": "31154d59d469d008",
+        "name": "Sensor MQTT → DB",
+        "topic": "carro/sensor",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "32f00862.92f0b",
+        "inputs": 0,
+        "x": 250,
+        "y": 720,
+        "wires": [
+            [
+                "a285c95760efe3a5"
+            ]
+        ]
+    },
+    {
+        "id": "a285c95760efe3a5",
+        "type": "json",
+        "z": "31154d59d469d008",
+        "name": "Parse JSON Sensor",
+        "property": "payload",
+        "pretty": false,
+        "x": 450,
+        "y": 720,
+        "wires": [
+            [
+                "2bcd217854c12de0"
+            ]
+        ]
+    },
+    {
+        "id": "2bcd217854c12de0",
+        "type": "function",
+        "z": "31154d59d469d008",
+        "name": "Build UPDATE SQL",
+        "func": "// extrai leituras atuais\nconst { ax, ay, az, gx, gy, gz } = msg.payload;\n// calcula g-force atual\ntmp = Math.sqrt(ax*ax + ay*ay + az*az) / 9.806;\n// tracka máximo\nglet = flow.get('gforce_max') || 0;\nif (tmp > glet) { glet = tmp; flow.set('gforce_max', glet); }\n\n// montamos um UPDATE que mantém ax, ay... e gforce_max acumulado\nmsg.topic = `\n  UPDATE carro\n  SET\n    ax_max = $1,\n    ay_max = $2,\n    az_max = $3,\n    gx_max = $4,\n    gy_max = $5,\n    gz_max = $6,\n    gforce_max = GREATEST(gforce_max, $7)\n  WHERE id = 1\n`;\nmsg.params = [ ax, ay, az, gx, gy, gz, glet ];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 680,
+        "y": 720,
+        "wires": [
+            [
+                "257e4c775f511025"
+            ]
+        ]
+    },
+    {
+        "id": "257e4c775f511025",
+        "type": "postgres",
+        "z": "31154d59d469d008",
+        "postgresdb": "postgres_config",
+        "name": "Update carro",
+        "output": true,
+        "perrow": false,
+        "rowspermsg": "",
+        "return_on_error": false,
+        "limit_queries": null,
+        "limit_by": "",
+        "limit_value": "",
+        "limit_drop_intermediate": false,
+        "limit_drop_if_in_queue": false,
+        "outputs": true,
+        "x": 930,
+        "y": 720,
+        "wires": [
+            []
+        ]
     }
 ]
