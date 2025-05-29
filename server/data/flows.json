@@ -1,21 +1,10 @@
 [
     {
-        "id": "31154d59d469d008",
+        "id": "2a5fa45e41d51d69",
         "type": "tab",
         "label": "Controlo do Carro",
         "disabled": false,
         "info": ""
-    },
-    {
-        "id": "2e07c98446453759",
-        "type": "ui_group",
-        "name": "Controlo",
-        "tab": "fc4788f2c5ccac32",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
     },
     {
         "id": "fc4788f2c5ccac32",
@@ -30,7 +19,7 @@
         "id": "32f00862.92f0b",
         "type": "mqtt-broker",
         "name": "Mosquitto",
-        "broker": "192.168.1.155",
+        "broker": "10.36.238.53",
         "port": "1883",
         "clientid": "",
         "autoConnect": true,
@@ -182,43 +171,20 @@
         "collapse": false
     },
     {
-        "id": "postgres_config",
-        "type": "postgresdb",
-        "cfgname": "",
-        "hostname": "postgres",
-        "port": "5432",
-        "db": "",
-        "ssl": false
+        "id": "2e07c98446453759",
+        "type": "ui_group",
+        "name": "Controlo",
+        "tab": "fc4788f2c5ccac32",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
     },
     {
-        "id": "bbef69896cfe927f",
-        "type": "postgreSQLConfig",
-        "name": "",
-        "host": "postgres",
-        "hostFieldType": "str",
-        "port": "5432",
-        "portFieldType": "num",
-        "database": "postgres",
-        "databaseFieldType": "str",
-        "ssl": "true",
-        "sslFieldType": "bool",
-        "applicationName": "",
-        "applicationNameType": "str",
-        "max": "10",
-        "maxFieldType": "num",
-        "idle": "1000",
-        "idleFieldType": "num",
-        "connectionTimeout": "10000",
-        "connectionTimeoutFieldType": "num",
-        "user": "test",
-        "userFieldType": "str",
-        "password": "test",
-        "passwordFieldType": "str"
-    },
-    {
-        "id": "29a92224938e59ee",
+        "id": "753b921eb2782fd4",
         "type": "mqtt out",
-        "z": "31154d59d469d008",
+        "z": "2a5fa45e41d51d69",
         "name": "MQTT para ESP32",
         "topic": "carro/comando",
         "qos": "0",
@@ -234,9 +200,9 @@
         "wires": []
     },
     {
-        "id": "9e9e35be08ca3e53",
+        "id": "d6c7411b276e7147",
         "type": "ui_button",
-        "z": "31154d59d469d008",
+        "z": "2a5fa45e41d51d69",
         "name": "Frente",
         "group": "2e07c98446453759",
         "order": 1,
@@ -250,14 +216,14 @@
         "y": 100,
         "wires": [
             [
-                "29a92224938e59ee"
+                "753b921eb2782fd4"
             ]
         ]
     },
     {
-        "id": "cf1f5e67f49a6b6c",
+        "id": "05e533b1c2649b4a",
         "type": "ui_button",
-        "z": "31154d59d469d008",
+        "z": "2a5fa45e41d51d69",
         "name": "Esquerda",
         "group": "2e07c98446453759",
         "order": 2,
@@ -271,14 +237,14 @@
         "y": 140,
         "wires": [
             [
-                "29a92224938e59ee"
+                "753b921eb2782fd4"
             ]
         ]
     },
     {
-        "id": "80623082f784b913",
+        "id": "2b0f857c4746700b",
         "type": "ui_button",
-        "z": "31154d59d469d008",
+        "z": "2a5fa45e41d51d69",
         "name": "Direita",
         "group": "2e07c98446453759",
         "order": 3,
@@ -292,14 +258,14 @@
         "y": 180,
         "wires": [
             [
-                "29a92224938e59ee"
+                "753b921eb2782fd4"
             ]
         ]
     },
     {
-        "id": "652786003aee6880",
+        "id": "e0db82b7dd90f18a",
         "type": "ui_button",
-        "z": "31154d59d469d008",
+        "z": "2a5fa45e41d51d69",
         "name": "Trás",
         "group": "2e07c98446453759",
         "order": 4,
@@ -313,14 +279,14 @@
         "y": 220,
         "wires": [
             [
-                "29a92224938e59ee"
+                "753b921eb2782fd4"
             ]
         ]
     },
     {
-        "id": "b1411eedada0fcea",
+        "id": "08db883e4005d876",
         "type": "ui_button",
-        "z": "31154d59d469d008",
+        "z": "2a5fa45e41d51d69",
         "name": "Parar",
         "group": "2e07c98446453759",
         "order": 5,
@@ -336,14 +302,14 @@
         "y": 260,
         "wires": [
             [
-                "29a92224938e59ee"
+                "753b921eb2782fd4"
             ]
         ]
     },
     {
-        "id": "d1e2f3a4b5c6d7e",
+        "id": "c48edb3cd43ef04f",
         "type": "mqtt in",
-        "z": "31154d59d469d008",
+        "z": "2a5fa45e41d51d69",
         "name": "Sensor MQTT",
         "topic": "carro/sensor",
         "qos": "0",
@@ -354,14 +320,14 @@
         "y": 420,
         "wires": [
             [
-                "c1d2e3f4a5b6c7d"
+                "3173306ce9baf8ec"
             ]
         ]
     },
     {
-        "id": "c1d2e3f4a5b6c7d",
+        "id": "3173306ce9baf8ec",
         "type": "json",
-        "z": "31154d59d469d008",
+        "z": "2a5fa45e41d51d69",
         "name": "Parse JSON",
         "property": "payload",
         "action": "",
@@ -370,20 +336,20 @@
         "y": 420,
         "wires": [
             [
-                "f1e2d3c4b5a6970",
-                "f2e3d4c5b6a7981",
-                "f3e4d5c6b7a8092",
-                "f4e5d6c7b8a9103",
-                "f5e6d7c8b9a0214",
-                "f6e7d8c9b0a1325",
-                "c5b4e64861a48a70"
+                "c3d3f1b7266a6c11",
+                "6fba30c28ebddad5",
+                "7c6b81c1e3fda880",
+                "fb554ba1e1cd1cc4",
+                "7cae6b820973df46",
+                "387143ee7cede2f9",
+                "899d650ffe1ed096"
             ]
         ]
     },
     {
-        "id": "f1e2d3c4b5a6970",
+        "id": "c3d3f1b7266a6c11",
         "type": "change",
-        "z": "31154d59d469d008",
+        "z": "2a5fa45e41d51d69",
         "name": "extrair ax",
         "rules": [
             {
@@ -403,14 +369,14 @@
         "y": 380,
         "wires": [
             [
-                "gauge_ax"
+                "2a6af56e2a373a43"
             ]
         ]
     },
     {
-        "id": "f2e3d4c5b6a7981",
+        "id": "6fba30c28ebddad5",
         "type": "change",
-        "z": "31154d59d469d008",
+        "z": "2a5fa45e41d51d69",
         "name": "extrair ay",
         "rules": [
             {
@@ -425,14 +391,14 @@
         "y": 420,
         "wires": [
             [
-                "gauge_ay"
+                "3c5245c5acf1983c"
             ]
         ]
     },
     {
-        "id": "f3e4d5c6b7a8092",
+        "id": "7c6b81c1e3fda880",
         "type": "change",
-        "z": "31154d59d469d008",
+        "z": "2a5fa45e41d51d69",
         "name": "extrair az",
         "rules": [
             {
@@ -447,14 +413,14 @@
         "y": 460,
         "wires": [
             [
-                "gauge_az"
+                "7320b7e15685b5df"
             ]
         ]
     },
     {
-        "id": "f4e5d6c7b8a9103",
+        "id": "fb554ba1e1cd1cc4",
         "type": "change",
-        "z": "31154d59d469d008",
+        "z": "2a5fa45e41d51d69",
         "name": "extrair gx",
         "rules": [
             {
@@ -469,14 +435,14 @@
         "y": 500,
         "wires": [
             [
-                "gauge_gx"
+                "85bea4ca3c21de38"
             ]
         ]
     },
     {
-        "id": "f5e6d7c8b9a0214",
+        "id": "7cae6b820973df46",
         "type": "change",
-        "z": "31154d59d469d008",
+        "z": "2a5fa45e41d51d69",
         "name": "extrair gy",
         "rules": [
             {
@@ -491,14 +457,14 @@
         "y": 540,
         "wires": [
             [
-                "gauge_gy"
+                "1e1ab516da6a16b1"
             ]
         ]
     },
     {
-        "id": "f6e7d8c9b0a1325",
+        "id": "387143ee7cede2f9",
         "type": "change",
-        "z": "31154d59d469d008",
+        "z": "2a5fa45e41d51d69",
         "name": "extrair gz",
         "rules": [
             {
@@ -513,14 +479,14 @@
         "y": 580,
         "wires": [
             [
-                "gauge_gz"
+                "a458d797cd48fa72"
             ]
         ]
     },
     {
-        "id": "c5b4e64861a48a70",
+        "id": "899d650ffe1ed096",
         "type": "function",
-        "z": "31154d59d469d008",
+        "z": "2a5fa45e41d51d69",
         "name": "Calcular G-Force",
         "func": "// calcula g-force a partir de ax, ay, az\nconst g = Math.sqrt(\n  msg.payload.ax**2 +\n  msg.payload.ay**2 +\n  msg.payload.az**2\n) / 9.806;\nmsg.payload = g;\nreturn msg;",
         "outputs": 1,
@@ -531,14 +497,14 @@
         "y": 280,
         "wires": [
             [
-                "gauge_gforce"
+                "50684e5de07aeb30"
             ]
         ]
     },
     {
-        "id": "gauge_ax",
+        "id": "2a6af56e2a373a43",
         "type": "ui_gauge",
-        "z": "31154d59d469d008",
+        "z": "2a5fa45e41d51d69",
         "name": "Ax",
         "group": "group_acel",
         "order": 1,
@@ -554,9 +520,9 @@
         "wires": []
     },
     {
-        "id": "gauge_ay",
+        "id": "3c5245c5acf1983c",
         "type": "ui_gauge",
-        "z": "31154d59d469d008",
+        "z": "2a5fa45e41d51d69",
         "name": "Ay",
         "group": "group_acel",
         "order": 2,
@@ -572,9 +538,9 @@
         "wires": []
     },
     {
-        "id": "gauge_az",
+        "id": "7320b7e15685b5df",
         "type": "ui_gauge",
-        "z": "31154d59d469d008",
+        "z": "2a5fa45e41d51d69",
         "name": "Az",
         "group": "group_acel",
         "order": 3,
@@ -590,9 +556,9 @@
         "wires": []
     },
     {
-        "id": "gauge_gx",
+        "id": "85bea4ca3c21de38",
         "type": "ui_gauge",
-        "z": "31154d59d469d008",
+        "z": "2a5fa45e41d51d69",
         "name": "Gx",
         "group": "group_giro",
         "order": 1,
@@ -608,9 +574,9 @@
         "wires": []
     },
     {
-        "id": "gauge_gy",
+        "id": "1e1ab516da6a16b1",
         "type": "ui_gauge",
-        "z": "31154d59d469d008",
+        "z": "2a5fa45e41d51d69",
         "name": "Gy",
         "group": "group_giro",
         "order": 2,
@@ -626,9 +592,9 @@
         "wires": []
     },
     {
-        "id": "gauge_gz",
+        "id": "a458d797cd48fa72",
         "type": "ui_gauge",
-        "z": "31154d59d469d008",
+        "z": "2a5fa45e41d51d69",
         "name": "Gz",
         "group": "group_giro",
         "order": 3,
@@ -654,9 +620,9 @@
         "wires": []
     },
     {
-        "id": "gauge_gforce",
+        "id": "50684e5de07aeb30",
         "type": "ui_gauge",
-        "z": "31154d59d469d008",
+        "z": "2a5fa45e41d51d69",
         "name": "Força G",
         "group": "group_gforce",
         "order": 1,
@@ -667,8 +633,66 @@
         "format": "{{value | number:2}}",
         "min": 0,
         "max": 4,
-        "x": 820,
+        "x": 840,
         "y": 280,
         "wires": []
+    },
+    {
+        "id": "mqtt_to_uibuilder",
+        "type": "mqtt in",
+        "z": "2a5fa45e41d51d69",
+        "name": "MQTT → 3D Viewer",
+        "topic": "carro/sensor",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "32f00862.92f0b",
+        "inputs": 0,
+        "x": 310,
+        "y": 760,
+        "wires": [
+            [
+                "parse_for_uib"
+            ]
+        ]
+    },
+    {
+        "id": "parse_for_uib",
+        "type": "json",
+        "z": "2a5fa45e41d51d69",
+        "name": "Parse JSON",
+        "property": "payload",
+        "pretty": false,
+        "x": 510,
+        "y": 760,
+        "wires": [
+            [
+                "uibuilder_car"
+            ]
+        ]
+    },
+    {
+        "id": "uibuilder_car",
+        "type": "uibuilder",
+        "z": "2a5fa45e41d51d69",
+        "name": "3D Car Viewer",
+        "topic": "",
+        "url": "carview",
+        "okToGo": true,
+        "fwdInMessages": true,
+        "templateFolder": "blank",
+        "extTemplate": "",
+        "reload": false,
+        "sourceFolder": "src",
+        "deployedVersion": "7.3.0",
+        "showMsgUib": false,
+        "title": "",
+        "descr": "",
+        "editurl": "vscode://file/data/uibuilder/carview/?windowId=_blank",
+        "x": 710,
+        "y": 760,
+        "wires": [
+            [],
+            []
+        ]
     }
 ]
