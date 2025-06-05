@@ -19,7 +19,7 @@
         "id": "32f00862.92f0b",
         "type": "mqtt-broker",
         "name": "Mosquitto",
-        "broker": "10.36.237.63",
+        "broker": "10.36.254.2",
         "port": "1883",
         "clientid": "",
         "autoConnect": true,
@@ -180,6 +180,31 @@
         "width": "6",
         "collapse": false,
         "className": ""
+    },
+    {
+        "id": "3ae2846cf3bd4434",
+        "type": "postgreSQLConfig",
+        "name": "",
+        "host": "127.0.0.1",
+        "hostFieldType": "str",
+        "port": 5432,
+        "portFieldType": "num",
+        "database": "postgres",
+        "databaseFieldType": "str",
+        "ssl": "true",
+        "sslFieldType": "bool",
+        "applicationName": "",
+        "applicationNameType": "str",
+        "max": 10,
+        "maxFieldType": "num",
+        "idle": 1000,
+        "idleFieldType": "num",
+        "connectionTimeout": 10000,
+        "connectionTimeoutFieldType": "num",
+        "user": "test",
+        "userFieldType": "str",
+        "password": "test",
+        "passwordFieldType": "str"
     },
     {
         "id": "753b921eb2782fd4",
@@ -692,6 +717,22 @@
         "y": 760,
         "wires": [
             [],
+            []
+        ]
+    },
+    {
+        "id": "eaf85c57ce1d176d",
+        "type": "postgresql",
+        "z": "2a5fa45e41d51d69",
+        "name": "",
+        "query": "SELECT * FROM carro;",
+        "postgreSQLConfig": "3ae2846cf3bd4434",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 950,
+        "y": 660,
+        "wires": [
             []
         ]
     }
