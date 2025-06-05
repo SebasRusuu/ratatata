@@ -1,6 +1,11 @@
-FROM nodered/node-red:3.1
+FROM node:18-alpine
 
-# Instala o nó de PostgreSQL
-RUN npm install node-red-contrib-postgres
+# Instala dependências do Node-RED
+RUN npm install -g --unsafe-perm node-red
 
-RUN npm install node-red-dashboard
+# Cria diretório de trabalho
+WORKDIR /data
+
+# Expõe porta e inicia
+EXPOSE 1880
+CMD ["node-red", "--userDir", "/data"]

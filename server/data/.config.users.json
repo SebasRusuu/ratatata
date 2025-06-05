@@ -13,11 +13,12 @@
                 "view-show-welcome-tours": true
             },
             "tours": {
-                "welcome": "3.1.15"
+                "welcome": "4.0.9"
             },
             "dialog": {
                 "export": {
-                    "pretty": true
+                    "pretty": true,
+                    "json-view": true
                 }
             }
         },
